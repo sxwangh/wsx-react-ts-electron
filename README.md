@@ -2,6 +2,7 @@
 1 npm start
 2 npm start-electron
 
+
 ###问题
 1 若electron node install卡住
 vim ~/.npmrc
