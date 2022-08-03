@@ -1,6 +1,13 @@
 ### 本地开发启动
+node 17
 1 npm start
-2 npm start-electron
+2 npm run start-electron
+
+
+### TODO
+puperteer
+robot.js
+xxxx -- 自动化测试？
 
 
 ###问题
