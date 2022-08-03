@@ -1,3 +1,16 @@
+### 本地开发启动
+1 npm start
+2 npm start-electron
+
+###问题
+1 若electron node install卡住
+vim ~/.npmrc
+```
+ registry=xxx
+ electron_mirror="https://npm.taobao.org/mirrors/electron/"
+ ```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
