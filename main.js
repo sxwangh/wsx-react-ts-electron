@@ -23,7 +23,6 @@ function createWindow () {
   } else {
     mainWindow.loadFile('./build/index.html')
   }
-  window.webContents.openDevTools();
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools({mode:'bottom'});

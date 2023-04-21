@@ -1,13 +1,54 @@
 ### 本地开发启动
-node 17
-1 npm start
-2 npm run start-electron
+node 16
+1 npm start  (启动webpack server 前端页面)
+2 npm run start-electron （启动electron框架）
 
+### 打包成应用程序
+- 配置package.json中的version 和files
+- nvm use 16
+- npm run build (打包前端的静态资源在build文件夹下) 
+- npm run build-mac（利用electron-builder对electron进行打包，静态资源通过package.json的files字段配置，打包到app.asar中）
 
-### TODO
-puperteer
-robot.js
-xxxx -- 自动化测试？
+### package.json配置说明
+```javascript
+const pkg = {
+  "name": "wsx-react-ts-electron",
+  "version": "1.0.0", // 1 - 打包应用程序版本
+  "main": "main.js", // 2 - 应用程序入口文件
+  "private": true,
+  "homepage": ".",
+  "DEV": false,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node s/Users/wangsixue/Desktop/wsx/electron-playground/README.mdcripts/test.js",
+    "start-electron": "electron .",
+    "build-mac": "electron-builder  --mac",
+    "build-win": "electron-builder  --win"
+  },
+  "build": { // 3 - electron-builder的打包配置
+    "productName": "wsxElectronApp", // 4 - 应用程序的名字
+    "appId": "wsx.example.app", // 5 - 应用程序的id，通过来更新版本
+    "directories": {
+      "output": "dist" // 6 - 打包输出路径
+    }, 
+    "files": [ // 7 - 需要一起打包进应用程序app.asar中的文件
+        "build/**/*",
+        "main.js",
+        "package.json"
+    ],
+    "dmg": {
+      "backgroundColor": "#fff"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    }
+  }
+}
+```
+
 
 
 ###问题
