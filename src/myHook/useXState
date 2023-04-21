@@ -1,0 +1,27 @@
+/*
+* 自定义hook： useXState设置回调函数
+* const [name, setName] = useXState(initValue);
+* setName('wsx', () => {});  设值，cb回调函数
+*/
+
+import { useEffect, useRef, useState } from 'react'
+
+const useXState = (initState) => {
+    const [state, setState] = useState(initState)
+    let isUpdate = useRef()
+    const setXState = (state, cb) => {
+      setState(prev => {
+        isUpdate.current = cb
+        return typeof state === 'function' ? state(prev) : state
+      })
+    }
+    useEffect(() => {
+      if(isUpdate.current) {
+        isUpdate.current()
+      }
+    })
+  
+    return [state, setXState]
+  }
+
+export default useXState;

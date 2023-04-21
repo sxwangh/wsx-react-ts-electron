@@ -1,9 +1,38 @@
 {
   "name": "wsx-react-ts-electron",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "main.js",
   "private": true,
   "homepage": ".",
+  "DEV": false,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node s/Users/wangsixue/Desktop/wsx/electron-playground/README.mdcripts/test.js",
+    "start-electron": "electron .",
+    "build-mac": "electron-builder  --mac",
+    "build-win": "electron-builder  --win"
+  },
+  "build": {
+    "productName": "wsxElectronApp",
+    "appId": "wsx.example.app",
+    "directories": {
+      "output": "dist"
+    },
+    "dmg": {
+      "backgroundColor": "#fff"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "files": [
+      "build/**/*",
+      "main.js",
+      "package.json"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
@@ -27,7 +56,6 @@
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
-    "electron": "^20.0.0",
     "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-webpack-plugin": "^3.1.1",
@@ -65,13 +93,9 @@
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "start-electron": "electron .",
-    "build:mac": "electron-builder  --mac",
-    "build:win": "electron-builder  --win"
+  "devDependencies": {
+    "electron-builder": "^23.6.0",
+    "electron": "^20.0.0"
   },
   "eslintConfig": {
     "extends": [
